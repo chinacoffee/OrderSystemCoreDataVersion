@@ -58,12 +58,7 @@ class DishCateogyListVC: UIViewController, UITableViewDelegate, UITableViewDataS
         saveSequenceButton.isEnabled = false
         
     }
-    @IBAction func changeEditStatus(_ sender: UIBarButtonItem) {
         
-        tableView.isEditing = !tableView.isEditing
-        
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         
         if let sections = controller.sections {
@@ -132,7 +127,9 @@ class DishCateogyListVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let dishCategory = controller.object(at: indexPath)
         
+        performSegue(withIdentifier: "DishListVC", sender: dishCategory)
         
     }
     
@@ -282,6 +279,12 @@ class DishCateogyListVC: UIViewController, UITableViewDelegate, UITableViewDataS
             if let destination = segue.destination as? DishCategoryDetailVC {
                 maxSequenceId += 1
                 destination.newSequenceId = maxSequenceId
+            }
+        } else if segue.identifier == "DishListVC" {
+            if let destination = segue.destination as? DishListVC {
+                if let dishCategory = sender as? DishCategory {
+                    destination.dishCategory = dishCategory
+                }
             }
         }
         

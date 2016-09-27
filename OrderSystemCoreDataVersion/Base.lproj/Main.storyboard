@@ -99,12 +99,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dish Category List" id="QkQ-Mj-Vsh">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="iJF-Zc-NEe">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="changeEditStatus:" destination="BYZ-38-t0r" id="QwK-0n-p54"/>
-                            </connections>
-                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="1XC-EJ-krp">
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -127,7 +121,6 @@
                                     </state>
                                     <connections>
                                         <action selector="saveCellSequence:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b8r-oR-2qz"/>
-                                        <action selector="savePressed:" destination="cIr-8s-KEt" eventType="touchUpInside" id="GYv-sO-9Hg"/>
                                     </connections>
                                 </button>
                             </barButtonItem>
@@ -254,11 +247,32 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dish List" id="Ykc-ev-7E8">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Hvn-O4-bYK">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Hvn-O4-bYK">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="D2F-73-x6K">
+                                <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sZc-Y3-Xs8">
+                                    <rect key="frame" x="274" y="2" width="50" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.79171389250000002" green="0.25474320189999999" blue="0.12118845120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="8ft-0g-1ri"/>
+                                        <constraint firstAttribute="height" constant="40" id="ZZz-cG-4f9"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                    <state key="normal" title="Save">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="saveCellSequence:" destination="RoP-ev-18y" eventType="touchUpInside" id="SBa-OJ-3bs"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveSequenceButton" destination="sZc-Y3-Xs8" id="Qxi-cO-8dM"/>
                         <outlet property="tableView" destination="GoB-Fi-Q7L" id="maQ-c4-iSn"/>
                     </connections>
                 </viewController>
